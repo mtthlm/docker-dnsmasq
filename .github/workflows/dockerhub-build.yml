@@ -1,0 +1,60 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+      - edge
+    paths:
+      - .dnsmasq-version
+      - .dockerignore
+      - dnsmasq.conf
+      - Dockerfile
+
+env:
+  DOCKERHUB_REPOSITORY: ${{ secrets.DOCKERHUB_USERNAME }}/dnsmasq
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: DNSMASQ version
+        run: |
+          printf -- 'DNSMASQ_VERSION=%s\n' "$(0<.dnsmasq-version)" \
+            | tee --append "$GITHUB_ENV"
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.DOCKERHUB_REPOSITORY }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=${{ env.DNSMASQ_VERSION }},enable={{is_default_branch}}
+            type=edge,branch=edge
+            type=ref,event=branch,enable=${{ github.ref != 'refs/heads/main' }}
+            type=ref,event=tag
+            type=ref,event=pr
+            type=sha
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          build-args: |
+            DNSMASQ_VERSION=${{ env.DNSMASQ_VERSION }}
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=registry,ref=${{ env.DOCKERHUB_REPOSITORY }}:latest
+          cache-to: type=inline

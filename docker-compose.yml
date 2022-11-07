@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  dnsmasq:
+    image: mtthlm/dnsmasq:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dnsmasq
+    volumes:
+      - ./dnsmasq.conf:/etc/dnsmasq.conf:ro
+    ports:
+      - target: 53
+        published: 53
+        protocol: udp
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
