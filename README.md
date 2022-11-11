@@ -28,6 +28,16 @@ wget https://raw.githubusercontent.com/mtthlm/docker-dnsmasq/main/docker-compose
 docker compose up --pull missing --detach
 ```
 
+## Resources
+
+* [Official Documentation - thekelleys.org.uk](https://thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
+
+### Similar Projects
+
+* [opsxcq/docker-dnsmasq](https://github.com/opsxcq/docker-dnsmasq)
+* [jpillora/docker-dnsmasq](https://github.com/jpillora/docker-dnsmasq)
+* [tschaffter/docker-dnsmasq](https://github.com/tschaffter/docker-dnsmasq)
+
 ## License
 
 ```
