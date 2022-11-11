@@ -2,6 +2,11 @@
 
 [![build](https://github.com/mtthlm/docker-dnsmasq/actions/workflows/dockerhub-build.yml/badge.svg?branch=main&event=push)](https://github.com/mtthlm/docker-dnsmasq/actions/workflows/dockerhub-build.yml?query=branch%3Amain+event%3Apush) [![GitHub issues](https://img.shields.io/github/issues/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/issues) [![GitHub forks](https://img.shields.io/github/forks/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/network) [![GitHub stars](https://img.shields.io/github/stars/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/stargazers) [![GitHub license](https://img.shields.io/github/license/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/blob/main/LICENSE) [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fmtthlm%2Fdocker-dnsmasq)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fmtthlm%2Fdocker-dnsmasq)
 
+## Supported tags and respective `Dockerfile` links
+
+* [`2.86-r3`](https://github.com/mtthlm/docker-dnsmasq/blob/6de7971ffc76ffd80459552533f471d24b4bb6d5/Dockerfile), [`latest`](https://github.com/mtthlm/docker-dnsmasq/blob/main/Dockerfile)
+* [`sha-b9ffebd`](https://github.com/mtthlm/docker-dnsmasq/blob/b9ffebdf659b8ab1f84d1f66f2095cb41e5ac07f/Dockerfile), [`edge`](https://github.com/mtthlm/docker-dnsmasq/blob/edge/Dockerfile)
+
 ## Usage
 
 ```shell
