@@ -1,6 +1,6 @@
 # docker-dnsmasq
 
-[![build](https://github.com/mtthlm/docker-dnsmasq/actions/workflows/dockerhub-build.yml/badge.svg?branch=main&event=push)](https://github.com/mtthlm/docker-dnsmasq/actions/workflows/dockerhub-build.yml?query=branch%3Amain+event%3Apush) [![GitHub issues](https://img.shields.io/github/issues/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/issues) [![GitHub forks](https://img.shields.io/github/forks/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/network) [![GitHub stars](https://img.shields.io/github/stars/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/stargazers) [![GitHub license](https://img.shields.io/github/license/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/blob/main/LICENSE) [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fmtthlm%2Fdocker-dnsmasq)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fmtthlm%2Fdocker-dnsmasq)
+[![build](https://github.com/mtthlm/docker-dnsmasq/actions/workflows/dockerhub-build.yml/badge.svg?branch=edge&event=push)](https://github.com/mtthlm/docker-dnsmasq/actions/workflows/dockerhub-build.yml?query=branch%3Aedge+event%3Apush) [![GitHub issues](https://img.shields.io/github/issues/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/issues) [![GitHub forks](https://img.shields.io/github/forks/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/network) [![GitHub stars](https://img.shields.io/github/stars/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/stargazers) [![GitHub license](https://img.shields.io/github/license/mtthlm/docker-dnsmasq)](https://github.com/mtthlm/docker-dnsmasq/blob/edge/LICENSE) [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fmtthlm%2Fdocker-dnsmasq)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fmtthlm%2Fdocker-dnsmasq)
 
 ## Usage
 
@@ -11,16 +11,16 @@ docker run --detach \
   --cap-add NET_ADMIN \
   --restart unless-stopped \
   --name dnsmasq \
-  --pull missing \
+  --pull always \
   mtthlm/dnsmasq:latest
 ```
 
 **or**
 
 ```shell
-wget https://raw.githubusercontent.com/mtthlm/docker-dnsmasq/main/docker-compose.yml
+wget https://raw.githubusercontent.com/mtthlm/docker-dnsmasq/edge/docker-compose.yml
 
-docker compose up --pull missing --detach
+docker compose up --pull always --detach
 ```
 
 ## License

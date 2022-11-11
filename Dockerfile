@@ -1,4 +1,4 @@
-FROM alpine:3.16.2
+FROM alpine:20221110
 LABEL maintainer="Matt Helm <matt.helm@mehnet.io>"
 
 ARG DNSMASQ_VERSION
