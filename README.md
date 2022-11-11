@@ -9,6 +9,18 @@
 
 ## Usage
 
+If you don't already have a configuration of your own, [`dnsmasq.conf`](dnsmasq.conf) can be used to get started. Example:
+
+```shell
+# wget https://raw.githubusercontent.com/mtthlm/docker-dnsmasq/main/dnsmasq.conf
+curl --remote-name https://raw.githubusercontent.com/mtthlm/docker-dnsmasq/main/dnsmasq.conf
+
+echo "host-record=${HOSTNAME:-"edge.us-east"}.example.com,${IPV4:-"10.0.0.1"}" \
+  | tee --append dnsmasq.conf
+```
+
+Run using `docker run`:
+
 ```shell
 docker run --detach \
   --volume ./dnsmasq.conf:/etc/dnsmasq.conf:ro \
@@ -20,10 +32,13 @@ docker run --detach \
   mtthlm/dnsmasq:latest
 ```
 
-**or**
+or...
+
+Run using `docker compose`:
 
 ```shell
-wget https://raw.githubusercontent.com/mtthlm/docker-dnsmasq/main/docker-compose.yml
+# wget https://raw.githubusercontent.com/mtthlm/docker-dnsmasq/main/docker-compose.yml
+curl --remote-name https://raw.githubusercontent.com/mtthlm/docker-dnsmasq/main/docker-compose.yml
 
 docker compose up --pull missing --detach
 ```
